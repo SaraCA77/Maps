@@ -1,25 +1,32 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { Routes, RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { Tab4Page } from './tab4.page';
 
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AgmCoreModule } from '@agm/core';
 import { IonicStorageModule } from '@ionic/storage';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: Tab4Page
+  }
+];
+
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab1Page }]),
+    IonicModule,
+    RouterModule.forChild([{ path: '', component: Tab4Page }]),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB2g5cFRZ6Cr6ozLb9hv6kow_Id066HQmo'
     })
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab4Page]
 })
-export class Tab1PageModule {}
+export class Tab4PageModule {}
