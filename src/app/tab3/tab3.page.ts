@@ -19,11 +19,11 @@ export class Tab3Page implements OnInit {
       {
         this.marcadores.push(marcador[i]);
         console.log(this.marcadores);
-        if(parseInt(i)>=3)
+        if(parseInt(i)<=2)
         {
           this.paths.push(marcador[i]);
         }
-        if(parseInt(i)>=2)
+        if(parseInt(i)==2)
         {
           this.latB = (marcador[2].lat);
           this.lngB = (marcador[2].lng);
@@ -46,6 +46,10 @@ export class Tab3Page implements OnInit {
   latB : number;
   lngA : number;
   lngB : number;
+  latC : number;
+  lngC : number;
+  latD : Number;
+  lngD : number;
   polyline = false;
 
   constructor(private storage: Storage){  }
@@ -60,21 +64,27 @@ export class Tab3Page implements OnInit {
       {
         this.latA = parseFloat(evento.coords.lat);
         this.lngA = parseFloat(evento.coords.lng);
-        console.log("Latitud: ",this.latA , " Longitud:",this.lngA);
+        console.log("Latitud: ",this.latA , " Longitud:",
+        this.lngA);
       }
      if(this.marcadores.length==2)
      {
        this.latB = parseFloat(evento.coords.lat);
        this.lngB = parseFloat(evento.coords.lng);
-       this.polyline = true;
        console.log("Latitud: ",this.latB , " Longitud:",this.lngB);
      }
      if(this.marcadores.length==3)
      {
-       this.latB = parseFloat(evento.coords.lat);
-       this.lngB = parseFloat(evento.coords.lng);
-       this.polyline = true;
-       console.log("Latitud: ",this.latB , " Longitud:",this.lngB);
+       this.latC = parseFloat(evento.coords.lat);
+       this.lngC = parseFloat(evento.coords.lng);
+       console.log("Latitud: ",this.latC , " Longitud:",this.lngC);
      }
-    }
-    }
+     if(this.marcadores.length==4)
+     {
+       this.latD = parseFloat(evento.coords.lat);
+       this.lngD = parseFloat(evento.coords.lng);
+       this.polyline = true;
+       console.log("Latitud: ",this.latC , " Longitud:",this.lngD);
+     }
+  }
+}
